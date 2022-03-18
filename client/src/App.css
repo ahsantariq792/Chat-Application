@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+.Home { 
+  background-image: url("https://media.istockphoto.com/photos/scenic-aerial-view-of-two-boats-on-sea-in-thailand-picture-id1136324597?b=1&k=20&m=1136324597&s=170667a&w=0&h=CCzSbAQX9oQh-04efEoP-hYnVjnBaVS0ZYV5398OPUs=");
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  color: black;
+  font-family: 'Work Sans', sans-serif;
+}
