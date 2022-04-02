@@ -5,8 +5,13 @@ dotenv.config({ path: './.env' })
 import connectDB from "./config/db.js";
 const app = express()
 const PORT = process.env.PORT
+import userRoutes from './routes/userRoutes'
+
 
 connectDB()
+app.use(express.json())
+app.use(cookieParser())
+
 
 app.get('/', (req, res) => {
     res.send("users")
@@ -15,6 +20,8 @@ app.get('/', (req, res) => {
 app.get('/chat', (req, res) => {
     res.send(chats)
 })
+
+app.use('api/user',userRoutes)
 
 app.get('/api/chat/:id', (req, res) => {
     res.send(req.params.id)
