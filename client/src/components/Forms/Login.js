@@ -6,17 +6,20 @@ import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { useToast } from "@chakra-ui/toast";
 import { useState } from 'react';
 
-
 const Login = () => {
-    
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const toast = useToast()
 
     const handleClick = () => {
         setShow(!show)
     }
     const submitHandler = () => { }
+
 
 
     return (

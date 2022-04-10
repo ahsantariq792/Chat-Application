@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css"
 import { Container, Box, Text, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import Signup from "../components/Forms/Signup";
-import Login  from "../components/Forms/Login";
+import Login from "../components/Forms/Login";
 
 
 const Home = () => {
@@ -31,7 +31,9 @@ const Home = () => {
 
                         <Tabs variant='soft-rounded'
                             color="black"
-                            colorScheme='green'>
+                            colorScheme="green"
+
+                        >
                             <TabList>
                                 <Tab width="50%">Login</Tab>
                                 <Tab width="50%">SignUp</Tab>

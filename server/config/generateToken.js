@@ -1,10 +1,9 @@
-const jwt = require('jsonwebtoken')
-const SECRET = process.env.SECRET
+const jwt = require("jsonwebtoken");
 
-
-const generateToken = () => {
-    var token = jwt.sign({ id }, SECRET, { expiresIn: "30d" });
-    console.log("token created: ", token);
-}
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.SECRET, {
+    expiresIn: "30d",
+  });
+};
 
 module.exports = generateToken;

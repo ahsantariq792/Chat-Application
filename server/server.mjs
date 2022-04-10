@@ -1,35 +1,26 @@
 import express from "express";
-import chats from "./dummy data/data.js"
 import dotenv from "dotenv"
 dotenv.config({ path: './.env' })
 import connectDB from "./config/db.js";
 const app = express()
 const PORT = process.env.PORT
-import userRoutes from './routes/userRoutes'
+import cors from "cors"
+import userRoutes from './router/userRouters.js'
+import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
 
+//MongoDB coonection
 connectDB()
+app.use(cors({
+    origin: ["http://localhost:3000", "http://localhost:5000"],
+    credentials: true
+}))
 app.use(express.json())
-app.use(cookieParser())
 
-
-app.get('/', (req, res) => {
-    res.send("users")
-})
-
-app.get('/chat', (req, res) => {
-    res.send(chats)
-})
-
-app.use('api/user',userRoutes)
-
-app.get('/api/chat/:id', (req, res) => {
-    res.send(req.params.id)
-    // console.log(req.params.id)
-    const singleChat = chats?.find((c) => c._id === req.params.id)
-    res.send(singleChat)
-    
-})
+//Apis and Routes
+app.use('/api/user',userRoutes)
+app.use(notFound)
+app.use(errorHandler)
 
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`)
